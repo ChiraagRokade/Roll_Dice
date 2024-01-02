@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:first_app/diceRolle.dart';
 import 'package:flutter/material.dart';
 
 const startAlignment = Alignment.bottomLeft;
@@ -9,6 +10,11 @@ class GradientContainer extends StatelessWidget {
   const GradientContainer(this.color1, this.color2, {super.key});
   final Color color1;
   final Color color2;
+  // var activeDice = 'assets/images/dice_two.png';
+  // void rollDice() {
+  //   activeDice = 'assets/images/dice_four.png';
+  // }
+
   @override
   Widget build(context) {
     return Container(
@@ -16,16 +22,9 @@ class GradientContainer extends StatelessWidget {
         gradient: LinearGradient(
             colors: [color1, color2], begin: startAlignment, end: endAlignment),
       ),
-      child: Center(
-          child: Column(
-        children: [
-          Image.asset(
-            'assets/images/dice_two.png',
-            width: 200,
-          ),
-          TextButton(onPressed: onPressed, child: const Text("Roll Dice"))
-        ],
-      )),
+      child: const Center(
+        child: DiceRoller(),
+      ),
     );
   }
 }
